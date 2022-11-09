@@ -550,7 +550,7 @@ type ForEachGeneration struct {
 	CloneList CloneList `json:"cloneList,omitempty" yaml:"cloneList,omitempty"`
 }
 
-func (g *ForEachGeneration) getData() apiextensions.JSON {
+func (g *ForEachGeneration) GetData() apiextensions.JSON {
 	return FromJSON(g.RawData)
 }
 
