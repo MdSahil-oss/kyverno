@@ -431,7 +431,6 @@ func forEachGetResourceInfoForDataAndClone(fe kyvernov1.ForEachGeneration) (kind
 }
 
 func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule kyvernov1.Rule, resource unstructured.Unstructured, ctx context.EvalInterface, policy kyvernov1.PolicyInterface, ur kyvernov1beta1.UpdateRequest) ([]kyvernov1.ResourceSpec, error) {
-	var forEachGenerationErrors []error
 	var noGenResource kyvernov1.ResourceSpec
 	var newGenResources []kyvernov1.ResourceSpec
 	for _, fe := range rule.Generation.ForEachGeneration {
@@ -439,16 +438,13 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 		var cresp, dresp map[string]interface{}
 		var err error
 		var mode ResourceMode
-		isErrorOccured := false
 
 		genKind, genName, genNamespace, genAPIVersion, err := forEachGetResourceInfoForDataAndClone(fe)
+		logger := log.WithValues("genKind", genKind, "genAPIVersion", genAPIVersion, "genNamespace", genNamespace, "genName", genName)
 		if err != nil {
-			forEachGenerationErrors = append(forEachGenerationErrors, err)
+			logger.Error(err, "failed to generate resource")
 			continue
 		}
-
-		logger := log.WithValues("genKind", genKind, "genAPIVersion", genAPIVersion, "genNamespace", genNamespace, "genName", genName)
-
 		if fe.Clone.Name != "" {
 			cresp, mode, err = manageClone(logger, genAPIVersion, genKind, genNamespace, genName, policy.GetName(), ur, rule.Generation, fe, client)
 			rdatas = append(rdatas, GenerateResponse{
@@ -479,7 +475,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 			if rdata.Error != nil {
 				logger.Error(err, "failed to generate resource", "mode", rdata.Action)
 				newGenResources = append(newGenResources, noGenResource)
-				isErrorOccured = true
 				break
 			}
 
@@ -493,7 +488,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 			if rdata.Data == nil && rdata.Action == Update {
 				logger.V(4).Info("no changes required for generate target resource")
 				newGenResources = append(newGenResources, noGenResource)
-				isErrorOccured = true
 				break
 			}
 
@@ -539,7 +533,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 				if err != nil {
 					if !apierrors.IsAlreadyExists(err) {
 						newGenResources = append(newGenResources, noGenResource)
-						isErrorOccured = true
 						break
 					}
 				}
@@ -553,7 +546,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 					_, err = client.CreateResource(rdata.GenAPIVersion, rdata.GenKind, rdata.GenNamespace, newResource, false)
 					if err != nil {
 						newGenResources = append(newGenResources, noGenResource)
-						isErrorOccured = true
 						break
 					}
 					newGenResources = append(newGenResources, newGenResource(rdata.GenAPIVersion, rdata.GenKind, rdata.GenNamespace, rdata.GenName))
@@ -577,7 +569,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 							if err != nil {
 								logger.Error(err, "failed to update resource")
 								newGenResources = append(newGenResources, noGenResource)
-								isErrorOccured = true
 								break
 							}
 						}
@@ -596,7 +587,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 							if err != nil {
 								logger.Error(err, "failed to update label in existing resource")
 								newGenResources = append(newGenResources, noGenResource)
-								isErrorOccured = true
 								break
 							}
 						}
@@ -606,10 +596,6 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 			}
 		}
 
-		if isErrorOccured {
-			forEachGenerationErrors = append(forEachGenerationErrors, err)
-			continue
-		}
 	}
 	return newGenResources, nil
 }
