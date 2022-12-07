@@ -609,7 +609,7 @@ func applyForEachGenerateRules(log logr.Logger, client dclient.Interface, rule k
 	return newGenResources, nil
 }
 
-func applyRule(log logr.Logger, client dclient.Interface, rule kyvernov1.Rule, resource unstructured.Unstructured, ctx context.EvalInterface, policy kyvernov1.PolicyInterface, ur kyvernov1beta1.UpdateRequest) ([]kyvernov1.ResourceSpec, error) {
+func applyRule(log logr.Logger, client dclient.Interface, rule kyvernov1.Rule, resource unstructured.Unstructured, ctx enginecontext.EvalInterface, policy kyvernov1.PolicyInterface, ur kyvernov1beta1.UpdateRequest) ([]kyvernov1.ResourceSpec, error) {
 	rdatas := []GenerateResponse{}
 	var cresp, dresp map[string]interface{}
 	var err error
@@ -914,9 +914,9 @@ func manageCloneList(log logr.Logger, namespace, policy string, ur kyvernov1beta
 		var resources *unstructured.UnstructuredList
 		var err error
 		if len(clone.ForEachGeneration) > 0 {
-			resources, err = client.ListResource(apiVersion, kind, rNamespace, fe.CloneList.Selector)
+			resources, err = client.ListResource(context.TODO(), apiVersion, kind, rNamespace, fe.CloneList.Selector)
 		} else {
-			resources, err = client.ListResource(apiVersion, kind, rNamespace, clone.CloneList.Selector)
+			resources, err = client.ListResource(context.TODO(), apiVersion, kind, rNamespace, clone.CloneList.Selector)
 		}
 		if err != nil {
 			response = append(response, GenerateResponse{
