@@ -3569,6 +3569,9 @@ spec:
                                       type: object
                                   type: object
                                 type: array
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -3773,6 +3776,9 @@ spec:
                               elementScope:
                                 description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                 type: boolean
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -5537,6 +5543,9 @@ spec:
                                           type: object
                                       type: object
                                     type: array
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -5741,6 +5750,9 @@ spec:
                                   elementScope:
                                     description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                     type: boolean
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -7372,6 +7384,9 @@ spec:
                                       type: object
                                   type: object
                                 type: array
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -7698,6 +7713,9 @@ spec:
                               elementScope:
                                 description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                 type: boolean
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -9437,6 +9455,9 @@ spec:
                                           type: object
                                       type: object
                                     type: array
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -9641,6 +9662,9 @@ spec:
                                   elementScope:
                                     description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                     type: boolean
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -11996,6 +12020,9 @@ spec:
                                       type: object
                                   type: object
                                 type: array
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -12200,6 +12227,9 @@ spec:
                               elementScope:
                                 description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                 type: boolean
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -13964,6 +13994,9 @@ spec:
                                           type: object
                                       type: object
                                     type: array
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -14168,6 +14201,9 @@ spec:
                                   elementScope:
                                     description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                     type: boolean
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -15799,6 +15835,9 @@ spec:
                                       type: object
                                   type: object
                                 type: array
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -16125,6 +16164,9 @@ spec:
                               elementScope:
                                 description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                 type: boolean
+                              foreach:
+                                description: Foreach declares a nested foreach iterator
+                                x-kubernetes-preserve-unknown-fields: true
                               list:
                                 description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                 type: string
@@ -17864,6 +17906,9 @@ spec:
                                           type: object
                                       type: object
                                     type: array
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
@@ -18068,6 +18113,9 @@ spec:
                                   elementScope:
                                     description: ElementScope specifies whether to use the current list element as the scope for validation. Defaults to "true" if not specified. When set to "false", "request.object" is used as the validation scope within the foreach block to allow referencing other elements in the subtree.
                                     type: boolean
+                                  foreach:
+                                    description: Foreach declares a nested foreach iterator
+                                    x-kubernetes-preserve-unknown-fields: true
                                   list:
                                     description: List specifies a JMESPath expression that results in one or more elements to which the validation logic is applied.
                                     type: string
