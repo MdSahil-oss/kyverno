@@ -3384,6 +3384,8 @@ spec:
                       enum:
                       - audit
                       - enforce
+                      - Audit
+                      - Enforce
                       type: string
                     namespaces:
                       items:
@@ -9992,6 +9994,8 @@ spec:
                       enum:
                       - audit
                       - enforce
+                      - Audit
+                      - Enforce
                       type: string
                     namespaces:
                       items:
