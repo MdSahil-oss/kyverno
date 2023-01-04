@@ -702,14 +702,14 @@ spec:
             description: Spec declares policy behaviors.
             properties:
               conditions:
-                description: Conditions defines conditions used to select resources
-                  which user needs to delete
+                description: Conditions defines the conditions used to select the
+                  resources which will be cleaned up.
                 properties:
                   all:
                     description: AllConditions enable variable-based conditional rule
                       execution. This is useful for finer control of when an rule
                       is applied. A condition can reference object data using JMESPath
-                      notation. Here, all of the conditions need to pass
+                      notation. Here, all of the conditions need to pass.
                     items:
                       properties:
                         key:
@@ -749,7 +749,7 @@ spec:
                     description: AnyConditions enable variable-based conditional rule
                       execution. This is useful for finer control of when an rule
                       is applied. A condition can reference object data using JMESPath
-                      notation. Here, at least one of the conditions need to pass
+                      notation. Here, at least one of the conditions need to pass.
                     items:
                       properties:
                         key:
@@ -2401,14 +2401,14 @@ spec:
             description: Spec declares policy behaviors.
             properties:
               conditions:
-                description: Conditions defines conditions used to select resources
-                  which user needs to delete
+                description: Conditions defines the conditions used to select the
+                  resources which will be cleaned up.
                 properties:
                   all:
                     description: AllConditions enable variable-based conditional rule
                       execution. This is useful for finer control of when an rule
                       is applied. A condition can reference object data using JMESPath
-                      notation. Here, all of the conditions need to pass
+                      notation. Here, all of the conditions need to pass.
                     items:
                       properties:
                         key:
@@ -2448,7 +2448,7 @@ spec:
                     description: AnyConditions enable variable-based conditional rule
                       execution. This is useful for finer control of when an rule
                       is applied. A condition can reference object data using JMESPath
-                      notation. Here, at least one of the conditions need to pass
+                      notation. Here, at least one of the conditions need to pass.
                     items:
                       properties:
                         key:
@@ -11993,7 +11993,7 @@ spec:
                             rule execution. This is useful for finer control of when
                             an rule is applied. A condition can reference object data
                             using JMESPath notation. Here, all of the conditions need
-                            to pass
+                            to pass.
                           items:
                             properties:
                               key:
@@ -12034,7 +12034,7 @@ spec:
                             rule execution. This is useful for finer control of when
                             an rule is applied. A condition can reference object data
                             using JMESPath notation. Here, at least one of the conditions
-                            need to pass
+                            need to pass.
                           items:
                             properties:
                               key:
@@ -12094,7 +12094,7 @@ spec:
                                     conditional rule execution. This is useful for
                                     finer control of when an rule is applied. A condition
                                     can reference object data using JMESPath notation.
-                                    Here, all of the conditions need to pass
+                                    Here, all of the conditions need to pass.
                                   items:
                                     properties:
                                       key:
@@ -12137,7 +12137,7 @@ spec:
                                     conditional rule execution. This is useful for
                                     finer control of when an rule is applied. A condition
                                     can reference object data using JMESPath notation.
-                                    Here, at least one of the conditions need to pass
+                                    Here, at least one of the conditions need to pass.
                                   items:
                                     properties:
                                       key:
@@ -25694,7 +25694,7 @@ spec:
                             rule execution. This is useful for finer control of when
                             an rule is applied. A condition can reference object data
                             using JMESPath notation. Here, all of the conditions need
-                            to pass
+                            to pass.
                           items:
                             properties:
                               key:
@@ -25735,7 +25735,7 @@ spec:
                             rule execution. This is useful for finer control of when
                             an rule is applied. A condition can reference object data
                             using JMESPath notation. Here, at least one of the conditions
-                            need to pass
+                            need to pass.
                           items:
                             properties:
                               key:
@@ -25795,7 +25795,7 @@ spec:
                                     conditional rule execution. This is useful for
                                     finer control of when an rule is applied. A condition
                                     can reference object data using JMESPath notation.
-                                    Here, all of the conditions need to pass
+                                    Here, all of the conditions need to pass.
                                   items:
                                     properties:
                                       key:
@@ -25838,7 +25838,7 @@ spec:
                                     conditional rule execution. This is useful for
                                     finer control of when an rule is applied. A condition
                                     can reference object data using JMESPath notation.
-                                    Here, at least one of the conditions need to pass
+                                    Here, at least one of the conditions need to pass.
                                   items:
                                     properties:
                                       key:
