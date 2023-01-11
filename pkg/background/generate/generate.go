@@ -1038,7 +1038,7 @@ func manageCloneList(log logr.Logger, namespace, policy string, ur kyvernov1beta
 	var rNamespace string
 	var kinds []string
 
-	if len(clone.ForEachGeneration) > 0 {
+	if clone.ForEachGeneration != nil {
 		rNamespace = fe.CloneList.Namespace
 		kinds = fe.CloneList.Kinds
 	} else {
@@ -1061,7 +1061,7 @@ func manageCloneList(log logr.Logger, namespace, policy string, ur kyvernov1beta
 		apiVersion, kind := kubeutils.GetKindFromGVK(kind)
 		var resources *unstructured.UnstructuredList
 		var err error
-		if len(clone.ForEachGeneration) > 0 {
+		if clone.ForEachGeneration != nil {
 			resources, err = client.ListResource(context.TODO(), apiVersion, kind, rNamespace, fe.CloneList.Selector)
 		} else {
 			resources, err = client.ListResource(context.TODO(), apiVersion, kind, rNamespace, clone.CloneList.Selector)
